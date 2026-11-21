@@ -1,6 +1,7 @@
 <!doctype html>
 <html><head>
 <meta charset="utf-8">
+<script>window.DEMO={"n": 5, "t": "Free demo — get the full app (26 letters · 100 numbers · 10 colors) on Etsy →", "u": "https://www.etsy.com/listing/4622627884"}</script>
 <meta name="description" content="ABC Kids: alphabet learning app for preschool kids. 26 letters with audio and tracing, numbers 1-100, colors. Phone and PC, offline, no ads.">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <link rel="manifest" href="manifest.json"><link rel="icon" href="icon192.png"><link rel="apple-touch-icon" href="icon192.png">
@@ -108,6 +109,9 @@ document.querySelectorAll("#topics button").forEach((b,i)=>b.textContent=LG.topi
 document.querySelectorAll("nav button").forEach((b,i)=>b.textContent=LG.nav[i]);
 [["#clr","clear"],["#chk","check"],["#nxt","nextBtn"],["#rep","listen"]].forEach(([s,k])=>document.querySelector(s).textContent=LG[k]);
 let SK="h";
+// demo site: window.DEMO={n,t,u} is injected only into the public page; the paid copies never have it
+if(window.DEMO){for(const k in SETS)SETS[k].L=SETS[k].L.slice(0,DEMO.n);L=SETS.h.L;
+  document.querySelector("#bar").insertAdjacentHTML("beforebegin",'<a href="'+DEMO.u+'" style="display:block;max-width:528px;margin:0 auto 6px;padding:10px;background:#3b2a1a;color:#fff;border-radius:10px;text-align:center;font-weight:700;text-decoration:none">'+DEMO.t+'</a>')}
 const key=i=>SK+i;
 const art=x=>x[5]?x[5]:x[4]?`<img src="anim/${x[4]}.webp" alt="${x[2]}" style="width:1.6em;height:1.6em;vertical-align:middle" onerror="this.outerHTML='${x[3]}'">`:x[3];
 const $=s=>document.querySelector(s);
