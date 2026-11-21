@@ -135,7 +135,7 @@ function card(i){
   cur=i;const x=L[i];
   $("#learn").innerHTML=`<div class="big"><div class="nav2"><button class="arr" id="pv">${LG.prev}</button><div class="l">${x[0]}</div><button class="arr" id="nx">${LG.next}</button></div><div class="w">${x[1]}</div>
   ${SK==="h"?`<div class="forms">${LG.forms(x[0]).map((f,k)=>`<div><b>${f}</b><small>${LG.formLabels[k]}</small></div>`).join("")}</div>`:""}<div class="e">${art(x)}</div><div class="w">${SK==="n"?"":x[2]}</div>
-  <div class="row"><button class="btn" id="s">🔊</button>${SK!=="c"?'<button class="btn g" id="t">${LG.writeIt}</button>':""}<button class="btn o" id="b">${SETS[SK].all}</button></div></div>`;  $("#s").onclick=()=>say(CORE.line(SK,x));if($("#t"))$("#t").onclick=()=>go("trace");$("#b").onclick=grid;
+  <div class="row"><button class="btn" id="s">🔊</button>${SK!=="c"?'<button class="btn g" id="t">'+LG.writeIt+'</button>':""}<button class="btn o" id="b">${SETS[SK].all}</button></div></div>`;  $("#s").onclick=()=>say(CORE.line(SK,x));if($("#t"))$("#t").onclick=()=>go("trace");$("#b").onclick=grid;
   const e=$("#learn .e");e.onclick=()=>{e.classList.remove("spin");void e.offsetWidth;e.classList.add("spin");say(SK==="n"?x[1]:x[2])};
   e.onanimationend=ev=>{if(ev.animationName==="spin")e.classList.remove("spin")};
   $("#nx").onclick=()=>card((i+1)%L.length);$("#pv").onclick=()=>card((i+L.length-1)%L.length);say(CORE.line(SK,x));
